@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Velocidade</title>
+    <style>
+        body{
+            background: #3df;
+            font: normal 15pt Arial;
+        }
+        header{
+            color: #000;
+            text-align: center;
+        }
+        section{
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 15px;
+            width: 500px;
+            margin: auto;
+            box-shadow: 7px 5px 10px rgba(0, 0, 0, 0.472);
+        }
+        footer{
+            color: #000;
+            text-align: center;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <header><h1>Conversor de Velocidade</h1></header>
+    <section>
+        <!-- Caixa de pergunta -->
+        <div>
+            <p>
+                <!-- Para converter para milhas por hora (mph) -->
+                Qual a Velocidade em Km/h? <input type="number" name="" id="MPH"> <br>
+                <input type="button" value="Converter para mph" onclick="converter()"> 
+            </p>
+        </div>
+        <!-- Resposta -->
+        <div id="res">
+            Convertendo...
+        </div>
+    </section>
+    <footer>
+        <p>
+            By - Lucas Miller - 23/05/2020
+        </p>
+    </footer>
+    <script>
+        function converter(){
+            let res = document.getElementById('res')
+            let conv = document.getElementById('MPH')
+            // Se conv estiver vazio...
+            if (conv.value.length == 0){
+                alert('[ERRO!] Por favor, digite um número para converter para mph!')
+            }else{
+                // Vai converter de km/h para mph
+                let kmH = Number(conv.value)
+                // Convertendo o numero para string
+                // Formula 
+                let mph = kmH / 1609
+                res.innerHTML = `${kmH}km/h equivale a ${mph}mph aproximadamente.`
+            }
+        }
+    </script>
+</body>
+</html>
